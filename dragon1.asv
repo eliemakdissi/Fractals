@@ -1,0 +1,13 @@
+function z=dragon1(speed,animation,bgcolor,color,iterations)
+set(gca,'Color',bgcolor);
+hold on;
+trunk=[0 3;0 3];
+trunk1=[6 3;0 3];%
+theta=45;
+r=0.7;
+h=line(trunk(1,:),trunk(2,:),'Color','k');
+delete(h);
+
+dragoncurve(trunk,r,theta,'red',10);
+dragoncurve(trunk1,r,theta,'blue',10);
+hold off;

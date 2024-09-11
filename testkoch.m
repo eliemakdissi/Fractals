@@ -1,0 +1,1 @@
+kochcurve1('red',6);

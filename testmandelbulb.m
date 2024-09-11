@@ -1,0 +1,1 @@
+mandelbulb1(100,8,'red');

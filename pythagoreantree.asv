@@ -1,0 +1,23 @@
+function branch = pythagoreantree(speed,animation,bgcolor,color,x,theta,layer)
+set(gca,'Color',bgcolor);
+hold on;
+x1=[cosd(theta)^2 -cosd(theta)*sind(theta) ; cosd(theta)*sind(theta) cosd(theta)^2]*(x-x(:,1)) + repmat(x(:,4), 1, size(x,2));
+plot(x1(1,:), x1(2,:),'Color',color);
+x2=[sind(theta)^2 cosd(theta)*sind(theta) ; -cosd(theta)*sind(theta) sind(theta)^2]*(x-x(:,1)) + repmat(x1(:,2), 1, size(x,2));
+plot(x2(1,:), x2(2,:),'Color',color);
+
+if layer==2
+    if animation==1
+        pause(1/speed);
+    end 
+    pythagoreantree(speed,animation,bgcolor,color,x1,theta,layer-1);
+    pythagoreantree(x2,theta,color2,layer-1);
+else
+    if animation==1
+        pause(1/speed);
+    end 
+    pythagoreantree(x1,theta,color1,layer-1);
+    pythagoreantree(x2,theta,color1,layer-1);%[0.6 0.2 0]
+end
+hold off;
+end
